@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Confirm the selected dataset properties</h3>
+
+<div>
+    <h4>Columns</h4>
+    <ul>
+        {% for column in feature_columns %}
+            <li>{{ column }}</li>
+        {% endfor %}
+    </ul>
+    <h4>Target Column</h4>
+    <p>{{ target_column }}</p>
+</div>
+
+<button href="/train">Confirm</button>
+
+{% endblock %}

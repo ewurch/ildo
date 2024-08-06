@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/columns/{{ file_id }}" method="post">
+    <fieldset>
+        <legend>Select the columns you want to engineer</legend>
+        <small>Don't select the target variable</small>
+        {% for column in columns %}
+        <label>
+            <input type="checkbox" name="{{ column }}" {% if column in feature_columns %}checked{% endif %}/>
+            {{ column }}
+        </label>
+        {% endfor %}
+    </fieldset>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Selected feature columns</p>
+<ul>
+    {% for column in feature_columns %}
+    <li>{{ column }}</li>
+    {% endfor %}
+</ul>
+
+<form action="/target/{{ file_id }}" method="post">
+    <fieldset>
+        <legend>Select the target column</legend>
+        {% for column in columns %}
+        <label>
+            <input type="radio" name="target" value="{{ column }}" />
+            {{ column }}
+        </label>
+        {% endfor %}
+    </fieldset>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
